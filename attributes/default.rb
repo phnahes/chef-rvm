@@ -45,7 +45,9 @@ default['rvm']['rvmrc']         = Hash.new
 default['rvm']['user_installs'] = []
 
 # system-wide installer options
-default['rvm']['installer_url'] = "https://get.rvm.io"
+#default['rvm']['installer_url'] = "http://get.rvm.io"
+default['rvm']['installer_url'] = "https://github.com/wayneeseguin/rvm/tarball/stable"
+default['rvm']['installer_offline'] = true
 default['rvm']['branch']  = "stable"
 default['rvm']['version'] = "head"
 default['rvm']['upgrade'] = "none"

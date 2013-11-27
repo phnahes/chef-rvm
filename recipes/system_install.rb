@@ -22,6 +22,7 @@ include_recipe 'rvm'
 script_flags      = build_script_flags(node['rvm']['branch'], node['rvm']['version'])
 upgrade_strategy  = build_upgrade_strategy(node['rvm']['upgrade'])
 installer_url     = node['rvm']['installer_url']
+installer_offline   = node['rvm']['installer_offline']
 rvm_prefix        = ::File.dirname(node['rvm']['root_path'])
 rvm_gem_options   = node['rvm']['rvm_gem_options']
 rvmrc             = node['rvm']['rvmrc']
@@ -46,7 +47,8 @@ rvmrc_template  :rvm_prefix => rvm_prefix,
 
 install_rvm     :rvm_prefix => rvm_prefix,
                 :installer_url => installer_url,
-                :script_flags => script_flags
+                :script_flags => script_flags,
+		:offline => installer_offline
 
 upgrade_rvm     :rvm_prefix => rvm_prefix,
                 :upgrade_strategy => upgrade_strategy
